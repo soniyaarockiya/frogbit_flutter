@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "18374716797",
+    "firebase_url": "https://frogbitdemo.firebaseio.com",
+    "project_id": "frogbitdemo",
+    "storage_bucket": "frogbitdemo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:18374716797:android:086893900b2f533261f014",
+        "android_client_info": {
+          "package_name": "com.soniyaarockiya.frogbitflutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "18374716797-35k7l1umqhr8t85fr9gmv3f4s6m166se.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.soniyaarockiya.frogbitflutter",
+            "certificate_hash": "90e3a06161aa1299944e04fc2139c626fe5f79c5"
+          }
+        },
+        {
+          "client_id": "18374716797-edoq05mgqnjklp33lghdekf7rnecbmdn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAH3xVz2qtauzXyfHmBN_D8Yhhp13-NLFg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "18374716797-edoq05mgqnjklp33lghdekf7rnecbmdn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
