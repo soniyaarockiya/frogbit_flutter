@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
 const kTextFieldStyle = TextStyle(
-  fontSize: 20.0,
+  fontSize: 17.0,
+  color: Colors.white,
 );

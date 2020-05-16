@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:frogbitflutter/services/authentication.dart';
 import 'package:frogbitflutter/constants/ui_constants.dart';
+import 'package:frogbitflutter/services/authentication.dart';
+import 'package:frogbitflutter/services/provider_package_state_management.dart';
+import 'package:provider/provider.dart';
+
 //TODO: Render overflow
 
 class LoginPage extends StatefulWidget {
@@ -19,7 +22,13 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        centerTitle: true,
+        title: Text(
+          'Login',
+          style: TextStyle(
+//            color: Color(0xFFfab000),
+              ),
+        ),
       ),
       body: Container(
         margin: EdgeInsets.all(30.0),
@@ -57,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               RaisedButton(
                 elevation: 10.0,
-                color: Color(0xFFEB1555),
+                color: Color(0xFFfab000),
                 onPressed: validateAndSubmit,
                 child: Text(
                   'Login',
@@ -90,6 +99,8 @@ class _LoginPageState extends State<LoginPage> {
         String userId = await _auth.signInWithEmailAndPassword(email, password);
         if (userId != null) {
           print("success......user id is ................$userId");
+          Provider.of<UserDataProvider>(context, listen: false)
+              .changeString(userId.toUpperCase());
           formKey.currentState.reset();
           Navigator.pushNamed(context, 'HomePage');
         }
