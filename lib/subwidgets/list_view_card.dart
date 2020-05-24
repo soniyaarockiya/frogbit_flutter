@@ -3,13 +3,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:frogbitflutter/constants/ui_constants.dart';
 
-class ListCard extends StatelessWidget {
+class ListCard extends StatefulWidget {
   ListCard({this.name, this.tagLine, this.imageUrl, this.id});
 
   final String name;
   final String imageUrl;
   final String tagLine;
   final String id;
+
+  @override
+  _ListCardState createState() => _ListCardState();
+}
+
+class _ListCardState extends State<ListCard> {
+  bool isFavourite = false;
+
+  void toggleFavourite() {
+    setState(() {
+      isFavourite = !isFavourite;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +40,7 @@ class ListCard extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 flex: 1,
-                child: Image.network(imageUrl),
+                child: Image.network(widget.imageUrl),
               ),
               SizedBox(
                 width: 15.0,
@@ -37,7 +50,7 @@ class ListCard extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     Text(
-                      '${name.toUpperCase()}...$id',
+                      '${widget.name.toUpperCase()}...${widget.id}',
                       textAlign: TextAlign.center,
                       style: kTextFieldStyle,
                     ),
@@ -47,7 +60,7 @@ class ListCard extends StatelessWidget {
                     Text(
                       //TODO: 2 Edit style as constant
                       //TODO: 3 Text widgets are repeated
-                      '"$tagLine"',
+                      '"${widget.tagLine}"',
                       textAlign: TextAlign.center,
                       style: kTextFieldStyle.copyWith(
                           fontSize: 15.0, color: Colors.blueGrey),
@@ -56,15 +69,19 @@ class ListCard extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: FlatButton(
-                  onPressed: () {},
-                  child: Icon(
-                    Icons.star_border,
-                    color: Color(0xFFfab000),
-                    size: 30.0,
-                  ),
-                ),
-              )
+                  child: IconButton(
+                iconSize: 35.0,
+                onPressed: toggleFavourite,
+                icon: isFavourite
+                    ? Icon(
+                        Icons.star,
+                        color: Color(0xFFfab000),
+                      )
+                    : Icon(
+                        Icons.star_border,
+                        color: Colors.blueGrey,
+                      ),
+              ))
             ],
           ),
         ),

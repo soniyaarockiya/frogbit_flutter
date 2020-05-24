@@ -46,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 validator: (value) =>
                     value.isEmpty ? 'Email cant be empty' : null,
-                onSaved: (value) => email = value,
+                onSaved: (value) => email = value.trim(),
               ),
               SizedBox(
                 height: 10.0,
@@ -102,7 +102,9 @@ class _LoginPageState extends State<LoginPage> {
           Provider.of<UserDataProvider>(context, listen: false)
               .changeString(userId.toUpperCase());
           formKey.currentState.reset();
-          Navigator.pushNamed(context, 'HomePage');
+          //Use pushReplacementNamed to remove previous screen (login) and back button from home page
+          Navigator.of(context).pushReplacementNamed('HomePage');
+//          Navigator.pushNamed(context, 'HomePage');
         }
       } catch (e) {
         print(e);
